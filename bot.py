@@ -21,10 +21,14 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler()
 async def send_welcome(message: types.Message):
-    if message == "Obito Uchiha":
+    if message.text == "Obito Uchiha":
         cursor.execute("""SELECT number FROM series WHERE id == 1""")
-        r = cursor.fetchall()
-        await bot.send_message(message.from_user.id, f"{r}")
+        results = cursor.fetchall()
+        list = []
+        for series in results:
+            list.append(f'{series}')
+
+        await bot.send_message (message.from_user.id, f"{list}")
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
