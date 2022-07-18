@@ -13,11 +13,16 @@ cursor = db.cursor()
 
 #cursor.execute("DROP TABLE series")
 
-cursor.execute("""SELECT number FROM series WHERE id == 1""")
-print(cursor.fetchall())
+#cursor.execute("""SELECT number FROM series WHERE id == 1""")
+#print(cursor.fetchall())
 
 #cursor.execute("DROP TABLE charser")
 
 #db.commit()
 
 ##print(cursor.fetchall())
+
+#cursor.execute("""INSERT INTO characters VALUES (2, 'Itachi Uchiha')""")
+
+#cursor.execute("""INSERT INTO series VALUES""")
+

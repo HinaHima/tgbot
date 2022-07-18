@@ -23,12 +23,29 @@ async def send_welcome(message: types.Message):
 async def send_welcome(message: types.Message):
     if message.text == "Obito Uchiha":
         cursor.execute("""SELECT number FROM series WHERE id == 1""")
-        results = cursor.fetchall()
         list = []
-        for series in results:
-            list.append(f'{series}')
+        while True:
+            results = cursor.fetchone()
+
+            if results == None:
+                break
+
+            list.append(results[0])
 
         await bot.send_message (message.from_user.id, f"{list}")
+
+    elif message.text == "Itachi Uchiha":
+        cursor.execute("""SELECT number FROM series WHERE id == 2""")
+        list = []
+        while True:
+            results = cursor.fetchone()
+
+            if results == None:
+                break
+
+            list.append(results[0])
+
+        await bot.send_message(message.from_user.id, f"{list}")
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
