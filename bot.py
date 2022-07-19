@@ -54,7 +54,7 @@ async def send_welcome(message: types.Message):
         await bot.send_message(message.from_user.id, "Do you want to choose another variant? Type 'yes' or 'no'.")
 
     elif message.text == 'yes':
-        await bot.send_message(message.from_user.id, "Here are the menu!", reply_markup=markup.mainMenu)
+        await bot.send_message(message.from_user.id, "Here is the menu!", reply_markup=markup.mainMenu)
 
     elif message.text == 'no':
         await bot.send_message(message.from_user.id, "Enjoy watching the series!")
